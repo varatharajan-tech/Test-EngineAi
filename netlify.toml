@@ -5,6 +5,15 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[functions]
+  directory = "dist/server"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
